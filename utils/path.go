@@ -14,6 +14,7 @@ func init() {
 	if err != nil {
 		panic(err)
 	}
+	// consider using /usr/local/bin
 	deckLocalRootPath := filepath.Join(homeDir, ".deck")
 	deckLocalBinPath = filepath.Join(deckLocalRootPath, "bin")
 }
