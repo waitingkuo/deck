@@ -1,22 +1,23 @@
 package utils
 
 import (
-	"github.com/mitchellh/go-homedir"
+	//"github.com/mitchellh/go-homedir"
 	"os"
-	"path/filepath"
+	//"path/filepath"
 )
 
 var deckServerRoot = "http://104.199.175.27/deck"
 var deckLocalBinPath = ""
 
 func init() {
-	homeDir, err := homedir.Dir()
-	if err != nil {
-		panic(err)
-	}
+	//homeDir, err := homedir.Dir()
+	//if err != nil {
+	//	panic(err)
+	//}
 	// consider using /usr/local/bin
-	deckLocalRootPath := filepath.Join(homeDir, ".deck")
-	deckLocalBinPath = filepath.Join(deckLocalRootPath, "bin")
+	//deckLocalRootPath := filepath.Join(homeDir, ".deck")
+	//deckLocalBinPath = filepath.Join(deckLocalRootPath, "bin")
+	deckLocalBinPath = "/usr/local/bin"
 }
 
 func MkdirDeckLocalBinPath() {
