@@ -22,8 +22,10 @@ package cmd
 
 import (
 	"fmt"
-
 	"github.com/spf13/cobra"
+	"github.com/waitingkuo/deck/utils"
+	"os"
+	"strings"
 )
 
 // service_createCmd represents the service_create command
@@ -38,21 +40,21 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		// TODO: Work your own magic here
-		fmt.Println("service_create called")
+		if len(args) == 0 {
+			os.Exit(0)
+		}
+
+		a := strings.Split(args[0], "/")
+		packageName := a[0]
+		serviceName := a[1]
+		fmt.Println("Downloading", serviceName+".service")
+		if err := utils.DownloadSystemdUnit(packageName, serviceName); err != nil {
+			panic(err)
+		}
 	},
 }
 
 func init() {
 	serviceCmd.AddCommand(serviceCreateCmd)
-
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// service_createCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// service_createCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 
 }

@@ -7,7 +7,8 @@ import (
 )
 
 var deckServerRoot = "http://104.199.175.27/deck"
-var deckLocalBinPath = ""
+var deckLocalBinPath = "/usr/local/bin"
+var deckLocalSystemUnitPath = "/etc/systemd/system"
 
 func init() {
 	//homeDir, err := homedir.Dir()
@@ -17,7 +18,6 @@ func init() {
 	// consider using /usr/local/bin
 	//deckLocalRootPath := filepath.Join(homeDir, ".deck")
 	//deckLocalBinPath = filepath.Join(deckLocalRootPath, "bin")
-	deckLocalBinPath = "/usr/local/bin"
 }
 
 func MkdirDeckLocalBinPath() {
